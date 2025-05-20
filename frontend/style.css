@@ -9,7 +9,7 @@ body {
     max-width: 600px;
     margin: auto;
     background: white;
-    padding: 20px;
+    padding: 40px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -51,16 +51,36 @@ button:hover {
 
 #result {
     margin-top: 20px;
+    background-color: #f3f3f3;
+    border-radius: 3px;
+    padding: 5px;
 }
 
 
 #output {
   white-space: pre-wrap;
   line-height: 1.6;
+  height: 50%;
 }
 
 strong {
   color: #2c3e50;
+}
+
+/* loader */
+#loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 
@@ -138,16 +158,7 @@ footer {
   text-align: center;
   padding: 15px;
 }
-/* footer {
-    position:sticky;
-    bottom: 0;
-    left:0;
-    width: 100%;
-    text-align: center;
-    padding: 20px 0;
-    background-color: #333;
-    color: white;
-} */
+
 
 .suggestions-container {
     display: flex;

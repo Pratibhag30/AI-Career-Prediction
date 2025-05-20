@@ -23,9 +23,9 @@ router.post('/predict-career', async (req, res) => {
   }
 
   const prompt = `
-Act as a career counselor AI. Given skills: [${skills}], interests: [${interests}], aptitude: [${aptitude}], suggest top 3 careers with roadmap, 
-average salary, 
-future growth, and 2-3 online courses from Udemy, Coursera, or edX.
+Act as a career counselor AI. Given skills: [${skills}], interests: [${interests}], 
+aptitude: [${aptitude}], suggest top 3 careers with roadmap, average salary, 
+future growth, and 2-3 online courses from Udemy, Coursera.
 `;
 
   try {
@@ -35,33 +35,27 @@ future growth, and 2-3 online courses from Udemy, Coursera, or edX.
       temperature: 0.7,
       stream: true,
     });
-     
-  //  let responseText = "";
-  //   for await (const chunk of completion) {
-  //     console.log(chunk.choices[0].delta);
-  //   console.log(chunk.choices[0].delta.content);
-  //   responseText += chunk.choices[0].delta.content;
-  //   }
+
 
     let responseText = "";
 
-for await (const chunk of completion) {
-  const delta = chunk.choices[0].delta;
+    for await (const chunk of completion) {
+      const delta = chunk.choices[0].delta;
 
-  if (delta && delta.content) {
-    console.log(delta.content);
-    responseText += delta.content;
-  }
-}
+      if (delta && delta.content) {
+        console.log(delta.content);
+        responseText += delta.content;
+      }
+    }
 
-console.log("Final response:", responseText);
+    console.log("Final response:", responseText);
 
 
     // Save user input and AI response to MongoDB
     const user = new User({ skills, interests, aptitude, response: responseText });
     await user.save();
 
-    return res.json({ success: true,  response: responseText });
+    return res.json({ success: true, response: responseText });
   } catch (err) {
     console.error('OpenAI error:', err);
     return res.status(500).json({ success: false, message: 'Server error during prediction' });
