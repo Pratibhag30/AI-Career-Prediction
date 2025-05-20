@@ -33,9 +33,29 @@ future growth, and 2-3 online courses from Udemy, Coursera, or edX.
       model: "gemini-2.0-flash",
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.7,
+      stream: true,
     });
-    const responseText = completion.choices[0].message.content.trim();
-    
+     
+  //  let responseText = "";
+  //   for await (const chunk of completion) {
+  //     console.log(chunk.choices[0].delta);
+  //   console.log(chunk.choices[0].delta.content);
+  //   responseText += chunk.choices[0].delta.content;
+  //   }
+
+    let responseText = "";
+
+for await (const chunk of completion) {
+  const delta = chunk.choices[0].delta;
+
+  if (delta && delta.content) {
+    console.log(delta.content);
+    responseText += delta.content;
+  }
+}
+
+console.log("Final response:", responseText);
+
 
     // Save user input and AI response to MongoDB
     const user = new User({ skills, interests, aptitude, response: responseText });
