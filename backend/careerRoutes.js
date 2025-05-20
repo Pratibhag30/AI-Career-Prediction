@@ -34,7 +34,6 @@ future growth, and 2-3 online courses from Udemy, Coursera, or edX.
       messages: [{ role: 'user', content: prompt }],
       temperature: 0.7,
     });
-    console.log(completion);
     const responseText = completion.choices[0].message.content.trim();
     
 
