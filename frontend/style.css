@@ -117,12 +117,37 @@ main {
     padding: 20px;
 }
 
+
+/*footer*/
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #007bff; /* your content background */
+  color:black
+}
+
 footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+/* footer {
+    position:sticky;
+    bottom: 0;
+    left:0;
+    width: 100%;
     text-align: center;
     padding: 20px 0;
     background-color: #333;
     color: white;
-}
+} */
 
 .suggestions-container {
     display: flex;
