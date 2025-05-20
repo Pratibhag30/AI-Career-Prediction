@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Counseling System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Driven Career Counseling System</h1>
+        <form id="careerForm">
+            <label for="skills">Skills (comma separated):</label>
+            <input type="text" id="skills" required>
+
+            <label for="interests">Interests (comma separated):</label>
+            <input type="text" id="interests" required>
+
+            <label for="aptitude">Aptitude:</label>
+            <input type="text" id="aptitude" required>
+
+            <button type="submit">Get Career Suggestions</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>Career Suggestions</h2>
+            <pre id="output"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

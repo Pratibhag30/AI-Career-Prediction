@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Suggestions - AI Predict Career System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="career-suggestions.html">Career Suggestions</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+       <div class="container">
+        <h1>AI-Driven Career Counseling System</h1>
+        <form id="careerForm" action="/predict-career">
+            <label for="skills">Skills (comma separated):</label>
+            <input type="text" id="skills" required>
+
+            <label for="interests">Interests (comma separated):</label>
+            <input type="text" id="interests" required>
+
+            <label for="aptitude">Aptitude:</label>
+            <input type="text" id="aptitude" required>
+
+            <button type="submit">Get Career Suggestions</button>
+        </form>
+
+        <div id="result" class="hidden">
+            <h2>Career Suggestions</h2>
+            <p id="output"></p>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 AI Predict Career System</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
